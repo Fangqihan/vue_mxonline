@@ -35,15 +35,16 @@
           var url= 'http://127.0.0.1:8002/api/courses/'+b_id+'/';
           this.$axios.request({
             url:url,
-            method:"GET"
+            method:"GET",
+            params:{
+                token:that.$store.state.token,
+            },
           }).then(function (response) {
-            console.log(response);
-            that.course=response.data.data
+            that.course=response.data.data;
             that.chapters=response.data.data.chapters
           })
         }
       }
-
     }
 </script>
 
